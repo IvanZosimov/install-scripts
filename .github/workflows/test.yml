@@ -13,9 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          test="TEST2"
-          value="test_value"
-          export TEST1="TEST_VALUE"
-          export "$test=$value"
-          echo $TEST1
-          echo $TEST2
+          cd ./source
+          source dotnet-install.sh -channel "8.0" -verbose
+          echo $DOTNET_INSTALL_SCRIPTS_SDK_LAST_INSTALLED_VERSION
+          
+          
