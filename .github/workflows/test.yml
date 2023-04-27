@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          cd ./source
+          cd ./src
           source dotnet-install.sh -channel "8.0" -verbose
           echo $DOTNET_INSTALL_SCRIPTS_SDK_LAST_INSTALLED_VERSION
           
