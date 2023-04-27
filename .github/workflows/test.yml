@@ -13,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install and check installed version Linux/macOS
+        if: ${{runner.os !== 'Windows' }}
         run: |
             cd ./src
             source dotnet-install.sh -channel "8.0" -verbose
