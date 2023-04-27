@@ -16,19 +16,19 @@ jobs:
         if: ${{runner.os != 'Windows' }}
         run: |
             cd ./src
-            source dotnet-install.sh -channel "8.0" -verbose
+            source dotnet-install.sh --channel "8.0" --verbose
             echo $DOTNET_INSTALL_SCRIPTS_SDK_LAST_INSTALLED_VERSION
-            source dotnet-install.sh -channel "8.0" -verbose -runtime "dotnet"
+            source dotnet-install.sh --channel "8.0" -verbose --runtime "dotnet"
             echo $DOTNET_INSTALL_SCRIPTS_RUNTIME_LAST_INSTALLED_VERSION
       - name: Install and check installed version Windows
         if: ${{runner.os == 'Windows'}}
         run: 
-            cd ./src &&
+            cd ./src
             
-            ./dotnet-install.ps1 --Channel "8.0" --Verbose &&
+            ./dotnet-install.ps1 --Channel "8.0" -Verbose
             
-            echo $Env:DOTNET_INSTALL_SCRIPTS_SDK_LAST_INSTALLED_VERSION &&
+            echo $Env:DOTNET_INSTALL_SCRIPTS_SDK_LAST_INSTALLED_VERSION
+        
+            ./dotnet-install.ps1 --Channel "8.0" -Verbose -Runtime "dotnet"
             
-            ./dotnet-install.ps1 --Channel "8.0" --Verbose --Runtime "dotnet" &&
-            
-            echo $Env:DOTNET_INSTALL_SCRIPTS_RUNTIME_LAST_INSTALLED_VERSION &&
+            echo $Env:DOTNET_INSTALL_SCRIPTS_RUNTIME_LAST_INSTALLED_VERSION
