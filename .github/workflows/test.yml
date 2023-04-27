@@ -26,6 +26,9 @@ jobs:
             cd ./src
             
             . ./dotnet-install.ps1 --Channel "8.0" --Verbose
+            
             echo $Env:DOTNET_INSTALL_SCRIPTS_SDK_LAST_INSTALLED_VERSION
+            
             . ./dotnet-install.ps1 --Channel "8.0" --Verbose --Runtime "dotnet"
+            
             echo $Env:DOTNET_INSTALL_SCRIPTS_RUNTIME_LAST_INSTALLED_VERSION
