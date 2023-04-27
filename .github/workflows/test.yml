@@ -17,7 +17,7 @@ jobs:
             cd ./src
             source dotnet-install.sh -channel "8.0" -verbose
             echo $DOTNET_INSTALL_SCRIPTS_SDK_LAST_INSTALLED_VERSION
-            source dotnet-install.sh -channel "8.0" -verbose -runtime
+            source dotnet-install.sh -channel "8.0" -verbose -runtime "dotnet"
             echo $DOTNET_INSTALL_SCRIPTS_RUNTIME_LAST_INSTALLED_VERSION
       - name: Install and check installed version Windows
         if: ${{runner.os == 'Windows'}}
@@ -25,5 +25,5 @@ jobs:
             cd ./src
             source dotnet-install.ps1 --Channel "8.0" --Verbose
             echo $Env:DOTNET_INSTALL_SCRIPTS_SDK_LAST_INSTALLED_VERSION
-            source dotnet-install.sh --Channel "8.0" --Verbose --Runtime
+            source dotnet-install.sh --Channel "8.0" --Verbose --Runtime "dotnet"
             echo $Env:DOTNET_INSTALL_SCRIPTS_RUNTIME_LAST_INSTALLED_VERSION
