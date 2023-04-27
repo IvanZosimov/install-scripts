@@ -1,0 +1,18 @@
+name: Setting env variables test
+on: 
+    workflow_dispatch:
+    push:
+    
+jobs:
+  test:
+    runs-on: ["ubuntu-latest", "macos-latest"]
+    
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          test="TEST2"
+          value="test_value"
+          export TEST1="TEST_VALUE"
+          export "$test=$value"
+          echo $TEST1
+          echo $TEST2
